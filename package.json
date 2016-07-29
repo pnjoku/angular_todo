@@ -12,6 +12,10 @@
   },
   "author": "Prince Njoku",
   "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  },
   "bugs": {
     "url": "https://github.com/pnjoku/angular_todo/issues"
   },
