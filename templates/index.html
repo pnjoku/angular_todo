@@ -3,28 +3,34 @@
 <title>todo</title>
 </head>
 <style>
+.container{margin-top: 50px;}
 .done{text-decoration: line-through; color: #ccc;}
+ul{list-style-type: none;}
 </style>
-<body ng-app="ToDo">
-    <div ng-controller="todoController as todos">
-      <form name="frm" ng-submit="todos.addTodo()">
-        <input type="text" name="newTodo" ng-model="todos.newTodo" required />
-        <button>Go</button>
+<body class="text-center" ng-app="ToDo">
+  <h1>Angular Todo List</h1>
+  <div class="container">
+    <div ng-controller="todoController as todosCtrl">
+      <div id="frm">
+      <form name="frm" ng-submit="todosCtrl.addTodo()">
+        <input type="text" name="newTodo" ng-model="todosCtrl.newTodoTitle" required />
+        <button class="btn">Go</button>
       </form>
-      <button ng-click="todos.clearCompleted()">Clear Completed</button>
+    </div>
+      <button class="btn" ng-click="todosCtrl.clearCompleted()">Clear Completed</button>
       <ul>
-        <li ng-repeat="todo in todos.item">
-          <input type="checkbox" ng-model="todos.todo.done" />
-          <span ng-class="{'done':todo.done}">{{todos.todo.title}}</span>
+        <li ng-repeat="todo in todosCtrl.todos">
+          <input type="checkbox" ng-model="todo.done" />
+          <span ng-class="{'done':todo.done}">{{todo.title}}</span>
         </li>
       </ul>
     </div>
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="todoController"></script>
+  <script src="./todoController.js"></script>
 </body>
 </html>

@@ -1,17 +1,15 @@
 angular
- .module('ToDo',['ngRoute'])
+ .module('ToDo',[])
  .controller('todoController', function(){
    var todoList = this
-    todoList.todos = [
-      {'title':'Build a todo app','done': false}
-    ];
+    todoList.todos = [{'title':'Build a todo app','done': false}]
     todoList.addTodo = function(){
-      todoList.items.push({'title': todoList.newTodo, 'done':false})
-      todoList.newTodo = {}
+      todoList.todos.push({'title': todoList.newTodoTitle, 'done':false})
+      todoList.newTodoTitle = ""
     }
     todoList.clearCompleted = function(){
-      todoList.items = todoList.items.filter(function(item){
-        return !item.done
+      todoList.todos = todoList.todos.filter(function(item){
+        return ! item.done
       })
     }
-}])
+})
